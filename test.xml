@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<treatment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="file:/C:/Users/updates/Downloads/reconsolidatingschemas/template.xsd">
+    <meta>
+        <source></source>
+    </meta>
+    <taxon_identification>
+        <family_name></family_name>
+    </taxon_identification>
+    <description>
+        <statement id="s0">
+            <text></text>
+
+        </statement>
+    </description>
+</treatment>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="taxon_identification">
+        <xs:complexType mixed="true">
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element ref="family_name" minOccurs="0"/>
+                <xs:element ref="family_authority" minOccurs="0"/>
+                <xs:element ref="subfamily_name" minOccurs="0"/>
+                <xs:element ref="subfamily_authority" minOccurs="0"/>
+                <xs:element ref="tribe_name" minOccurs="0"/>
+                <xs:element ref="tribe_authority" minOccurs="0"/>
+                <xs:element ref="subtribe_name" minOccurs="0"/>
+                <xs:element ref="subtribe_authority" minOccurs="0"/>
+                <xs:element ref="genus_name" minOccurs="0"/>
+                <xs:element ref="genus_authority" minOccurs="0"/>
+                <xs:element ref="subgenus_name" minOccurs="0"/>
+                <xs:element ref="subgenus_authority" minOccurs="0"/>
+                <xs:element ref="section_name" minOccurs="0"/>
+                <xs:element ref="section_authority" minOccurs="0"/>
+                <xs:element ref="subsection_name" minOccurs="0"/>
+                <xs:element ref="subsection_authority" minOccurs="0"/>
+                <xs:element ref="series_name" minOccurs="0"/>
+                <xs:element ref="series_authority" minOccurs="0"/>
+                <xs:element ref="species_name" minOccurs="0"/>
+                <xs:element ref="species_authority" minOccurs="0"/>
+                <xs:element ref="subspecies_name" minOccurs="0"/>
+                <xs:element ref="subspecies_authority" minOccurs="0"/>
+                <xs:element ref="variety_name" minOccurs="0"/>
+                <xs:element ref="variety_authority" minOccurs="0"/>
+                <xs:element ref="unranked_epithet_name" minOccurs="0"/>
+                <xs:element ref="unranked_epithet_authority" minOccurs="0"/>
+                <xs:element ref="other_info_on_name" minOccurs="0"/>
+                <xs:element ref="place_of_publication" minOccurs="0"/>
+            </xs:choice>
+            <xs:attribute name="Status" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- publication related element -->
+    <xs:element name="place_of_publication">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="publication_title"/>
+                <xs:element minOccurs="0" ref="place_in_publication"/>
+                <xs:element minOccurs="0" maxOccurs="unbounded" ref="other_info_on_pub"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="publication_title" type="xs:string"/>
+    <xs:element name="place_in_publication" type="xs:string"/>
+
+    <!-- ranked names -->
+    <xs:element name="family_name" type="xs:string"/>
+    <xs:element name="family_authority" type="xs:string"/>
+    <xs:element name="genus_name" type="xs:string"/>
+    <xs:element name="genus_authority" type="xs:string"/>
+    <xs:element name="section_name" type="xs:string"/>
+    <xs:element name="section_authority" type="xs:string"/>
+    <xs:element name="series_name" type="xs:string"/>
+    <xs:element name="series_authority" type="xs:string"/>
+    <xs:element name="species_name" type="xs:string"/>
+    <xs:element name="species_authority" type="xs:string"/>
+    <xs:element name="subfamily_name" type="xs:string"/>
+    <xs:element name="subfamily_authority" type="xs:string"/>
+    <xs:element name="subgenus_name" type="xs:string"/>
+    <xs:element name="subgenus_authority" type="xs:string"/>
+    <xs:element name="subsection_name" type="xs:string"/>
+    <xs:element name="subsection_authority" type="xs:string"/>
+    <xs:element name="subspecies_name" type="xs:string"/>
+    <xs:element name="subspecies_authority" type="xs:string"/>
+    <xs:element name="subtribe_name" type="xs:string"/>
+    <xs:element name="subtribe_authority" type="xs:string"/>
+    <xs:element name="tribe_name" type="xs:string"/>
+    <xs:element name="tribe_authority" type="xs:string"/>
+    <xs:element name="unranked_epithet_name" type="xs:string"/>
+    <xs:element name="unranked_epithet_authority" type="xs:string"/>
+    <xs:element name="variety_name" type="xs:string"/>
+    <xs:element name="variety_authority" type="xs:string"/>
+    <xs:element name="other_info_on_name" type="xs:string"/>
+    <xs:element name="other_info_on_pub" type="xs:string"/>
+</xs:schema>
