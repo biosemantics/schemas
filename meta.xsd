@@ -18,16 +18,19 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="source" type="xs:string"/>
-    <xs:element name="other_info_on_meta" type="xs:string"/>
-    <xs:element name="processed_by" type="xs:string">
-        <xs:complexType>
-            <xs:attribute name="process_type">
-                <xs:annotation>
+    <xs:element name="other_info_on_meta" type="xs:string"/>	
+	<xs:element name="processed_by">
+	  <xs:complexType>
+		<xs:simpleContent>
+		  <xs:extension base="xs:string">
+			<xs:attribute name="process_type" type="xs:string">
+				<xs:annotation>
                     <xs:documentation>for example, format conversion (from text to xml), mark-up (markup the content of text) </xs:documentation>
                 </xs:annotation>
-            </xs:attribute>
-        </xs:complexType>
-    </xs:element>
-    
+			</xs:attribute>
+		  </xs:extension>
+		</xs:simpleContent>
+	  </xs:complexType>
+	</xs:element>   
 
 </xs:schema>
