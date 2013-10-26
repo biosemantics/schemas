@@ -19,7 +19,7 @@
     </xs:element>
     <xs:element name="source" type="xs:string"/>
     <xs:element name="other_info_on_meta" type="xs:string"/>
-    <xs:element name="processed_by">
+    <xs:element name="processed_by" type="xs:string">
         <xs:complexType>
             <xs:attribute name="process_type">
                 <xs:annotation>
