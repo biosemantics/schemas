@@ -32,7 +32,7 @@
                 <xs:element ref="other_info_on_name" minOccurs="0"/>
                 <xs:element ref="place_of_publication" minOccurs="0"/>
             </xs:choice>
-            <xs:attribute name="Status" type="xs:NCName"/>
+            <xs:attribute name="status" type="xs:NCName"/>
         </xs:complexType>
     </xs:element>
 
