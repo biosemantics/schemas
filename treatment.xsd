@@ -4,10 +4,10 @@
     <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/taxonIdentification.xsd"/>
     <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/meta.xsd"/>
 
-	<xs:element name="treatment" type="treatmentType"/>
+	<xs:element name="treatment" type="treatment"/>
 	
 	<!-- Use type derivation to create a treatment for your purpose -->	
-	<xs:complexType name="treatmentType">
+	<xs:complexType name="treatment">
 		<xs:sequence>
 			<xs:element ref="meta"/>
 			<xs:element ref="taxon_identification"/>
