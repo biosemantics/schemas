@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
 
-	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/treatment.xsd">
+	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/textTreatment.xsd">
 		<xs:complexType name="treatment">
 			<xs:complexContent>
 				<xs:extension base="treatment">

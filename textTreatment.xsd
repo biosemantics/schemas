@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/description.xsd"/>
+
+	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/treatment.xsd">
+		<xs:complexType name="treatment">
+			<xs:complexContent>
+				<xs:extension base="treatment">
+					<xs:sequence>
+						<xs:element ref="description" minOccurs="0"/>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	
+</xs:schema>

@@ -7,13 +7,13 @@
     <taxon_identification>
         <family_name></family_name>
     </taxon_identification>
-    <!--<description>
-        <statement id="s0">
+    <description>
+        <!--<statement id="s0">
             <text></text>
 
-        </statement>
+        </statement>-->
     </description>
-    <discussion>
+    <!--<discussion>
         
     </discussion>
     <discussion>
