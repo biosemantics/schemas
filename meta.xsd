@@ -22,15 +22,11 @@
 	<xs:element name="processed_by" type="processed_by"/>
 	  
     <xs:complexType name="processed_by">
-        <xs:simpleContent>
-            <xs:extension base="xs:string">
-                <xs:attribute name="process_type" type="xs:string">
-                    <xs:annotation>
-                        <xs:documentation>for example, format conversion (from text to xml), mark-up (markup the content of text) </xs:documentation>
-                    </xs:annotation>
-                </xs:attribute>
-            </xs:extension>
-        </xs:simpleContent>
+        <xs:all>
+            <xs:element minOccurs="0" maxOccurs="unbounded" ref="processor"/>
+        </xs:all>
     </xs:complexType>
-
+    
+	<!-- Use type derivation to create a processor displaying information for your purpose -->	
+    <xs:complexType name="processor" mixed="true" />
 </xs:schema>

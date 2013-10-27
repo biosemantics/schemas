@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"> 
-	
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/description.xsd"/>
+	<xs:include	schemaLocation="https://raw.github.com/biosemantics/schemas/master/taxonIdentification.xsd"/>
+	<xs:include schemaLocation="meta.xsd"/>
+
 	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/treatment.xsd">
 		<xs:complexType name="treatment">
-	        <xs:complexContent>
-	        	<xs:extension base="treatment">
+			<xs:complexContent>
+				<xs:extension base="treatment">
 					<xs:sequence>
 						<xs:element ref="discussion" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:sequence>
 				</xs:extension>
-	        </xs:complexContent>
+			</xs:complexContent>
 		</xs:complexType>
 	</xs:redefine>
-	
+
+	<xs:complexType name="restrictedCharaparser" mixed="false">
+		<xs:complexContent>
+			<xs:restriction base="processor"/>
+		</xs:complexContent>
+	</xs:complexType>
+
+	<xs:complexType name="charaparser">
+		<xs:complexContent>
+			<xs:extension base="restrictedCharaparser">
+				<xs:sequence>
+					<xs:element name="charaparser_version" type="xs:string"/>
+					<xs:element name="glossary_name" type="xs:string"/>
+					<xs:element name="glossary_version" type="xs:string"/>
+					<xs:element name="user" type="xs:string" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+
 	<xs:element name="discussion" type="xs:string"/>
-	
 </xs:schema>
