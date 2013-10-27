@@ -21,12 +21,22 @@
     <xs:element name="other_info_on_meta" type="xs:string"/>	
 	<xs:element name="processed_by" type="processed_by"/>
 	  
+    <!-- Use type derivation to create a processor displaying information for your purpose -->	
     <xs:complexType name="processed_by">
         <xs:all>
-            <xs:element minOccurs="0" maxOccurs="unbounded" ref="processor"/>
+            <xs:element name="processor" minOccurs="0" maxOccurs="unbounded" type="processor"/>
         </xs:all>
     </xs:complexType>
-    
-	<!-- Use type derivation to create a processor displaying information for your purpose -->	
-    <xs:complexType name="processor" mixed="true" />
+	  
+	<xs:complexType name="processor">
+	    <xs:simpleContent>
+	        <xs:extension base="xs:string">
+	            <xs:attribute name="process_type" type="xs:string">
+	                <xs:annotation>
+	                    <xs:documentation>for example, format conversion (from text to xml), mark-up (markup the content of text) </xs:documentation>
+	                </xs:annotation>
+	            </xs:attribute>
+	        </xs:extension>
+	    </xs:simpleContent>
+	</xs:complexType>
 </xs:schema>
