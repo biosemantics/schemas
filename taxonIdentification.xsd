@@ -3,6 +3,7 @@
     <xs:element name="taxon_identification">
         <xs:complexType mixed="true">
             <xs:choice minOccurs="1" maxOccurs="unbounded">
+            <!--extending this list with other ranks by adding rank_name and rank_authority-->
                 <xs:element ref="family_name" minOccurs="0"/>
                 <xs:element ref="family_authority" minOccurs="0"/>
                 <xs:element ref="subfamily_name" minOccurs="0"/>
