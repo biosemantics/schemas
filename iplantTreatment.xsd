@@ -17,9 +17,9 @@
 		<xs:complexType name="processed_by">
 			<xs:complexContent>
 				<xs:extension base="processed_by">
-					<xs:all>
-						<xs:element name="charaparser" minOccurs="0" maxOccurs="unbounded" type="charaparser"/>
-					</xs:all>
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="charaparser" type="charaparser"/>
+					</xs:choice>
 				</xs:extension>
 			</xs:complexContent>
 		</xs:complexType>

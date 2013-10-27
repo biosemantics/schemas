@@ -23,9 +23,9 @@
 	  
     <!-- Use type derivation to create a processor displaying information for your purpose -->	
     <xs:complexType name="processed_by">
-        <xs:all>
-            <xs:element name="processor" minOccurs="0" maxOccurs="unbounded" type="processor"/>
-        </xs:all>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="processor"  type="processor"/>
+        </xs:choice>
     </xs:complexType>
 	  
 	<xs:complexType name="processor">
