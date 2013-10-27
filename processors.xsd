@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"> 
+    
+    <xs:complexType name="processor">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="process_type" type="xs:string">
+                    <xs:annotation>
+                        <xs:documentation>for example, format conversion (from text to xml), mark-up (markup the content of text) </xs:documentation>
+                    </xs:annotation>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:complexType name="charaparser">
+        <xs:sequence>
+            <xs:element name="charaparser_version" type="xs:string"/>
+            <xs:element name="charaparser_user" type="xs:string" minOccurs="0"/>
+            <xs:element name="glossary_name" type="xs:string"/>
+            <xs:element name="glossary_version" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+</xs:schema>
