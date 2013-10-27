@@ -5,7 +5,7 @@
     A complex type cannot include more than one attribute of type xsd:ID, or any type derived from xsd:ID.
     xsd:ID attributes cannot have default or fixed values specified. -->
     
-    <xs:redefine schemaLocation="description.xsd">
+    <xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/description.xsd">
         <xs:complexType name="description">
             <xs:complexContent>
                 <xs:extension base="description">
