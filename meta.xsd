@@ -8,7 +8,7 @@
                         <xs:documentation>put the bibligraphic information of the source paper here</xs:documentation>
                     </xs:annotation>
                 </xs:element>
-                <xs:element ref="processed_by" maxOccurs="unbounded" minOccurs="0">
+                <xs:element name="processed_by" type="processed_by">
                     <xs:annotation>
                         <xs:documentation>name of the person who converted the original to this format</xs:documentation>
                     </xs:annotation>
@@ -19,7 +19,6 @@
     </xs:element>
     <xs:element name="source" type="xs:string"/>
     <xs:element name="other_info_on_meta" type="xs:string"/>	
-	<xs:element name="processed_by" type="processed_by"/>
 	  
     <!-- Use type derivation to create a processor displaying information for your purpose -->	
     <xs:complexType name="processed_by">
