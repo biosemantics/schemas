@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
     <xs:element name="taxon_identification">
-        <xs:complexType mixed="true">
+        <xs:complexType>
             <xs:choice minOccurs="1" maxOccurs="unbounded">
             <!--extending this list with other ranks by adding rank_name and rank_authority-->
                 <xs:element ref="family_name" minOccurs="0"/>
