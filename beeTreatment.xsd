@@ -20,35 +20,69 @@
 		</xs:complexType>
 	</xs:redefine>
 
-	<!-- type element : all type related -->
-	<xs:element name="type" type="xs:string">
+	<!-- type attribute : for all subtitles -->
+	<xs:attribute name="type" type="xs:string"/>
+
+	<xs:element name="description" type="xs:string">
 		<xs:complexType>
-			<xs:attribute name="type" type="xs:string"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+
+	<!-- type element : all type related -->
+	<xs:element name="type">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
 	<xs:element name="synonym" type="xs:string"/>
 	<!-- material : all material related -->
 	<xs:element name="material" type="xs:string">
 		<xs:complexType>
-			<xs:attribute name="type" type="xs:string"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	<!-- discussion -->
 	<xs:element name="discussion" type="xs:string">
 		<xs:complexType>
-			<xs:attribute name="type" type="xs:string"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	<!-- articulation -->
 	<xs:element name="taxon_relation_articulation" type="xs:string">
 		<xs:complexType>
-			<xs:attribute name="type" type="xs:string"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	<!-- habitat_elevation_distribution_or_ecology -->
 	<xs:element name="habitat_elevation_distribution_or_ecology" type="xs:string">
 		<xs:complexType>
-			<xs:attribute name="type" type="xs:string"/>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="type"/>
+				</xs:extension>
+			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 </xs:schema>
