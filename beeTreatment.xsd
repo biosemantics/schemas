@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
-    <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/beeDescription.xsd"/>
-
 	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/treatment.xsd">
 		<xs:complexType name="treatment">
 			<xs:complexContent>
@@ -23,7 +21,7 @@
 	<!-- type attribute : for all subtitles -->
 	<xs:attribute name="type" type="xs:string"/>
 
-	<xs:element name="description" type="xs:string">
+	<xs:element name="description">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
@@ -46,7 +44,7 @@
 
 	<xs:element name="synonym" type="xs:string"/>
 	<!-- material : all material related -->
-	<xs:element name="material" type="xs:string">
+	<xs:element name="material">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
@@ -56,7 +54,7 @@
 		</xs:complexType>
 	</xs:element>
 	<!-- discussion -->
-	<xs:element name="discussion" type="xs:string">
+	<xs:element name="discussion">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
@@ -66,7 +64,7 @@
 		</xs:complexType>
 	</xs:element>
 	<!-- articulation -->
-	<xs:element name="taxon_relation_articulation" type="xs:string">
+	<xs:element name="taxon_relation_articulation">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
@@ -76,7 +74,7 @@
 		</xs:complexType>
 	</xs:element>
 	<!-- habitat_elevation_distribution_or_ecology -->
-	<xs:element name="habitat_elevation_distribution_or_ecology" type="xs:string">
+	<xs:element name="habitat_elevation_distribution_or_ecology">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
