@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="key" type="key"/>
+	
+	<!-- Use type derivation to create a treatment for your purpose -->	
+	<xs:complexType name="key">
+		<xs:sequence>
+			<xs:element ref="key_heading"/>
+			<xs:element ref="discussion" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element ref="key_statement" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- type attribute : for all subtitles -->
+	<xs:attribute name="file_name" type="xs:string"/>
+	
+	<!-- key_heading element : title of the key -->
+	<xs:element name="key_heading" type="xs:string"/>
+	<!-- discussion element -->
+	<xs:element name="discussion" type="xs:string"/>
+
+	<!-- key_statement element -->
+	<xs:element name="key_statement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="statement_id"/>
+				<xs:element ref="statement"/>
+				<xs:choice minOccurs="1">
+					<xs:element ref="next_statement_id" minOccurs="0"/>
+					<xs:element ref="determination" minOccurs="0"/>
+				</xs:choice>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- statement_id element -->
+	<xs:element name="statement_id" type="xs:string"/>
+	<!-- statement element -->
+	<xs:element name="statement" type="xs:string"/>
+	<!-- statement element -->
+	<xs:element name="next_statement_id" type="xs:string"/>
+	<!-- statement element -->
+	<xs:element name="determination">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute ref="file_name"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
