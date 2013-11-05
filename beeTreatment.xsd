@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/beeDescription.xsd"/>
+
+	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/treatment.xsd">
+		<xs:complexType name="treatment">
+			<xs:complexContent>
+				<xs:extension base="treatment">
+					<xs:choice minOccurs="1" maxOccurs="unbounded">
+						<xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="type" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="synonym" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="material" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="discussion" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="taxon_relation_articulation" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="habitat_elevation_distribution_or_ecology" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:choice>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+
+	<!-- type element : all type related -->
+	<xs:element name="type" type="xs:string">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="synonym" type="xs:string"/>
+	<!-- material : all material related -->
+	<xs:element name="material" type="xs:string">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- discussion -->
+	<xs:element name="discussion" type="xs:string">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- articulation -->
+	<xs:element name="taxon_relation_articulation" type="xs:string">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+	<!-- habitat_elevation_distribution_or_ecology -->
+	<xs:element name="habitat_elevation_distribution_or_ecology" type="xs:string">
+		<xs:complexType>
+			<xs:attribute name="type" type="xs:string"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
