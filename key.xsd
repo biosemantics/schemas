@@ -5,9 +5,13 @@
 	<!-- Use type derivation to create a treatment for your purpose -->	
 	<xs:complexType name="key">
 		<xs:sequence>
-			<xs:element ref="key_heading"/>
-			<xs:element ref="discussion" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element ref="key_statement" maxOccurs="unbounded"/>
+			<xs:element ref="key_heading" minOccurs="0"/>
+			<xs:element ref="key_author" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="discussion"/>
+				<xs:element ref="key_head"/>
+				<xs:element ref="key_statement"/>
+			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 
@@ -16,8 +20,12 @@
 	
 	<!-- key_heading element : title of the key -->
 	<xs:element name="key_heading" type="xs:string"/>
+	<!-- key_author element -->
+	<xs:element name="key_author" type="xs:string"/>
 	<!-- discussion element -->
 	<xs:element name="discussion" type="xs:string"/>
+	<!-- key_head element --> 
+	<xs:element name="key_head" type="xs:string"/>
 
 	<!-- key_statement element -->
 	<xs:element name="key_statement">
@@ -25,9 +33,9 @@
 			<xs:sequence>
 				<xs:element ref="statement_id"/>
 				<xs:element ref="statement"/>
-				<xs:choice minOccurs="1">
-					<xs:element ref="next_statement_id" minOccurs="0"/>
-					<xs:element ref="determination" minOccurs="0"/>
+				<xs:choice minOccurs="0">
+					<xs:element ref="next_statement_id"/>
+					<xs:element ref="determination"/>
 				</xs:choice>
 			</xs:sequence>
 		</xs:complexType>
