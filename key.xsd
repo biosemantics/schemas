@@ -5,6 +5,7 @@
 	<!-- Use type derivation to create a treatment for your purpose -->	
 	<xs:complexType name="key">
 		<xs:sequence>
+			<xs:element ref="meta" minOccurs="0"/>
 			<xs:element ref="key_heading" minOccurs="0"/>
 			<xs:element ref="key_author" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
