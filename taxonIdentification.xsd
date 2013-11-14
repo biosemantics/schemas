@@ -32,14 +32,10 @@
                 <xs:element ref="unranked_epithet_authority" minOccurs="0"/>
                 <xs:element ref="other_info_on_name" minOccurs="0"/>
                 <xs:element ref="place_of_publication" minOccurs="0"/>
-                <xs:element ref="taxon_hierarchy" minOccurs="0" /> 
             </xs:choice>
             <xs:attribute name="status" type="xs:NCName"/>
         </xs:complexType>
     </xs:element>
-
-    <!-- taxon hierarchy -->
-    <xs:element name="taxon_hierarchy" type="xs:string"/>
 
     <!-- publication related element -->
     <xs:element name="place_of_publication">

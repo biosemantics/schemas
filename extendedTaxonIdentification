@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:redefine schemaLocation="https://raw.github.com/biosemantics/schemas/master/taxonIdentification.xsd">
+		<xs:complexType name="taxon_identification">
+			<xs:complexContent>
+				<xs:extension base="taxon_identification">
+					<xs:choice minOccurs="0" maxOccurs="unbounded">
+                		<xs:element ref="taxon_hierarchy" minOccurs="0" />
+					</xs:choice>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:redefine>
+	
+    <!-- taxon hierarchy -->
+    <xs:element name="taxon_hierarchy" type="xs:string"/>
+</xs:schema>
