@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/extendedTaxonIdentification.xsd"/>
+    <xs:include schemaLocation="https://raw.github.com/biosemantics/schemas/master/meta.xsd"/>
+
+	<xs:element name="treatment" type="treatment"/>
+	
+	<!-- Use type derivation to create a treatment for your purpose -->	
+	<xs:complexType name="treatment">
+		<xs:sequence>
+			<xs:element ref="meta"/>
+			<xs:element ref="taxon_identification" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>
