@@ -13,6 +13,7 @@
 						<xs:element ref="discussion" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element ref="taxon_relation_articulation" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element ref="habitat_elevation_distribution_or_ecology" minOccurs="0" maxOccurs="unbounded"/>
+						<xs:element ref="key_file" minOccurs="0" maxOccurs="unbounded"/>
 					</xs:choice>
 				</xs:extension>
 			</xs:complexContent>
@@ -85,4 +86,6 @@
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
+	<!-- key_file : key file name -->
+	<xs:element name="other_name" type="xs:string"/>
 </xs:schema>
