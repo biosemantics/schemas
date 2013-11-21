@@ -55,12 +55,14 @@
     <xs:element name="family_authority" type="xs:string"/>
     <xs:element name="genus_name" type="xs:string"/>
     <xs:element name="genus_authority" type="xs:string"/>
+    <xs:element name="genus_group_name" type="xs:string"/>
     <xs:element name="section_name" type="xs:string"/>
     <xs:element name="section_authority" type="xs:string"/>
     <xs:element name="series_name" type="xs:string"/>
     <xs:element name="series_authority" type="xs:string"/>
     <xs:element name="species_name" type="xs:string"/>
     <xs:element name="species_authority" type="xs:string"/>
+    <xs:element name="species_group_name" type="xs:string"/>
     <xs:element name="subfamily_name" type="xs:string"/>
     <xs:element name="subfamily_authority" type="xs:string"/>
     <xs:element name="subgenus_name" type="xs:string"/>
