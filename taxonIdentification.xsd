@@ -4,6 +4,8 @@
     <xs:complexType name="taxon_identification">
         <xs:choice minOccurs="1" maxOccurs="unbounded">
         <!--extending this list with other ranks by adding rank_name and rank_authority-->
+            <xs:element ref="order_name" minOccurs="0"/>
+            <xs:element ref="order_authority" minOccurs="0"/>
             <xs:element ref="family_name" minOccurs="0"/>
             <xs:element ref="family_authority" minOccurs="0"/>
             <xs:element ref="subfamily_name" minOccurs="0"/>
@@ -13,6 +15,7 @@
             <xs:element ref="subtribe_name" minOccurs="0"/>
             <xs:element ref="subtribe_authority" minOccurs="0"/>
             <xs:element ref="genus_name" minOccurs="0"/>
+            <xs:element ref="genus_group_name" minOccurs="0"/>
             <xs:element ref="genus_authority" minOccurs="0"/>
             <xs:element ref="subgenus_name" minOccurs="0"/>
             <xs:element ref="subgenus_authority" minOccurs="0"/>
@@ -23,6 +26,7 @@
             <xs:element ref="series_name" minOccurs="0"/>
             <xs:element ref="series_authority" minOccurs="0"/>
             <xs:element ref="species_name" minOccurs="0"/>
+            <xs:element ref="species_group_name" minOccurs="0"/>
             <xs:element ref="species_authority" minOccurs="0"/>
             <xs:element ref="subspecies_name" minOccurs="0"/>
             <xs:element ref="subspecies_authority" minOccurs="0"/>
@@ -51,6 +55,8 @@
     <xs:element name="place_in_publication" type="xs:string"/>
 
     <!-- ranked names -->
+    <xs:element name="order_name" type="xs:string"/>
+    <xs:element name="order_authority" type="xs:string"/>
     <xs:element name="family_name" type="xs:string"/>
     <xs:element name="family_authority" type="xs:string"/>
     <xs:element name="genus_name" type="xs:string"/>
