@@ -6,6 +6,10 @@
         <!--extending this list with other ranks by adding rank_name and rank_authority-->
             <xs:element ref="order_name" minOccurs="0"/>
             <xs:element ref="order_authority" minOccurs="0"/>
+            <xs:element ref="suborder_name" minOccurs="0"/>
+            <xs:element ref="suborder_authority" minOccurs="0"/>
+            <xs:element ref="superfamily_name" minOccurs="0"/>
+            <xs:element ref="superfamily_authority" minOccurs="0"/>
             <xs:element ref="family_name" minOccurs="0"/>
             <xs:element ref="family_authority" minOccurs="0"/>
             <xs:element ref="subfamily_name" minOccurs="0"/>
@@ -57,6 +61,10 @@
     <!-- ranked names -->
     <xs:element name="order_name" type="xs:string"/>
     <xs:element name="order_authority" type="xs:string"/>
+    <xs:element name="suborder_name" type="xs:string"/>
+    <xs:element name="suborder_authority" type="xs:string"/>
+    <xs:element name="superfamily_name" type="xs:string"/>
+    <xs:element name="superfamily_authority" type="xs:string"/>
     <xs:element name="family_name" type="xs:string"/>
     <xs:element name="family_authority" type="xs:string"/>
     <xs:element name="genus_name" type="xs:string"/>
