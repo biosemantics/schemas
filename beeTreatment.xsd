@@ -5,6 +5,7 @@
 			<xs:complexContent>
 				<xs:extension base="treatment">
 					<xs:choice minOccurs="1" maxOccurs="unbounded">
+						<xs:element name="number" minOccurs="0" maxOccurs="1"/>
 						<xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element ref="type" minOccurs="0" maxOccurs="unbounded"/>
 						<xs:element ref="synonym" minOccurs="0" maxOccurs="unbounded"/>
