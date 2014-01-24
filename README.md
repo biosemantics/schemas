@@ -16,7 +16,7 @@ processors
 - defines processor
 - defines charaparser
 
-taxonIdentifiaction
+taxonIdentification
 ------
 - various string identification elements
 
