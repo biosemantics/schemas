@@ -89,7 +89,6 @@
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	</xs:complexType>
 
 	<xs:complexType name="taxon_identification">
 		<xs:choice minOccurs="1" maxOccurs="unbounded">
