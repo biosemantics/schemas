@@ -9,7 +9,7 @@
 			<xs:element type="meta" name="meta" />
 			<xs:element type="taxon_identification" name="taxon_identification" maxOccurs="unbounded" />
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
-				<xs:element type="xs:integer" name="number" minOccurs="0" maxOccurs="1" />
+				<xs:element type="xs:string" name="number" minOccurs="0" maxOccurs="1" />
 				<xs:element type="description" name="description" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element type="type" name="type" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element type="other_name" name="other_name" minOccurs="0" maxOccurs="unbounded" />
