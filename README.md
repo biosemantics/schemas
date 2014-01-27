@@ -1,5 +1,8 @@
 schemas
 =======
+
+Only work on consolidation_01272014 anymore until https://github.com/biosemantics/schemas/issues/2 resolved.
+
 treatment 
 ------
 - meta
