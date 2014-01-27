@@ -65,15 +65,14 @@
 		<xs:sequence>
 			<xs:element name="date" type="xs:string"/>
 			<xs:choice minOccurs="1">
-				<xs:element type="software_name" name="software_name"  minOccurs="0"  />
+				<xs:element type="software" name="software"  minOccurs="0"  />
 				<xs:element name="operator" type="xs:string" minOccurs="0" />
 			</xs:choice>
-			<xs:element type="resource_name" name="resource_name"  minOccurs="0" />
-			<xs:element type="xs:string" name="resource_version"  minOccurs="0" />
+			<xs:element type="resource" name="resource"  minOccurs="0" />
 		</xs:sequence>
 	</xs:complexType>
 
-	<xs:complexType name="software_name">
+	<xs:complexType name="software">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
 				<xs:attribute name="type" type="xs:string" />
@@ -81,9 +80,10 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	
-	<xs:complexType name="resource_name">
+	<xs:complexType name="resource">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
+				<xs:attribute name="version" type="xs:string" />
 				<xs:attribute name="type" type="xs:string" />
 			</xs:extension>
 		</xs:simpleContent>
