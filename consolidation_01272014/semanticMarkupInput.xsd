@@ -40,7 +40,18 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
-    <xs:element name="source" type="xs:string"/>
+    
+    <xs:element name="source">
+        <xs:complexType mixed="true">
+			<xs:sequence>
+				<xs:element name="author" type="xs:string"/>
+				<xs:element name="date" type="xs:string"/>
+				<xs:element name="title" type="xs:string"/>
+				<xs:element name="pages" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+ 
     <xs:element name="other_info_on_meta" type="xs:string"/>	
 	  
     <!-- Use type derivation to create a processor displaying information for your purpose -->	
@@ -77,8 +88,6 @@
     <xs:complexType name="taxon_identification">
         <xs:choice minOccurs="1" maxOccurs="unbounded">
         <!--extending this list with other ranks by adding rank_name and rank_authority-->
-            <xs:element ref="author" minOccurs="1" maxOccurs="1"/>
-            <xs:element ref="year" minOccurs="1" maxOccurs="1"/>
             <xs:element ref="order_name" minOccurs="0"/>
             <xs:element ref="order_authority" minOccurs="0"/>
             <xs:element ref="suborder_name" minOccurs="0"/>
@@ -135,8 +144,6 @@
     <xs:element name="place_in_publication" type="xs:string"/>
 
     <!-- ranked names -->
-    <xs:element name="author" type="xs:string"/>
-    <xs:element name="year" type="xs:string"/>
     <xs:element name="order_name" type="xs:string"/>
     <xs:element name="order_authority" type="xs:string"/>
     <xs:element name="suborder_name" type="xs:string"/>
