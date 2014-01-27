@@ -44,10 +44,10 @@
     <xs:element name="source">
         <xs:complexType mixed="true">
 			<xs:sequence>
-				<xs:element name="author" type="xs:string"/>
-				<xs:element name="date" type="xs:string"/>
-				<xs:element name="title" type="xs:string"/>
-				<xs:element name="pages" type="xs:string"/>
+				<xs:element name="author" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="date" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="pages" type="xs:string" minOccurs="0" maxOccurs="1"/>
 			</xs:sequence>
 		</xs:complexType>
     </xs:element>
