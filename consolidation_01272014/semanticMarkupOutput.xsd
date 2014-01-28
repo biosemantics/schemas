@@ -159,10 +159,21 @@
 	
 	<xs:complexType name="description">
 		<xs:sequence>
-            <xs:element maxOccurs="unbounded" type="statement" name="statement"/>
-        </xs:sequence>
-		<xs:attribute name="type" type="xs:string" />
+            		<xs:element maxOccurs="unbounded" type="statement" name="statement"/>
+        	</xs:sequence>
+		<xs:attribute name="type" type="description_type" />
 	</xs:complexType>
+	
+	<xs:simpleType name="description_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="morphology" />
+	    		<xs:enumeration value="phenology" />
+	    		<xs:enumeration value="habitat" />
+	    		<xs:enumeration value="elevation" />
+	    		<xs:enumeration value="ecology" />
+	    		<xs:enumeration value="distribution" />
+	 	</xs:restriction>
+	</xs:simpleType>
     
     <xs:complexType name="statement">
         <xs:sequence>
