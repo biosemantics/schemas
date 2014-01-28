@@ -159,10 +159,21 @@
 	<xs:complexType name="description">
 		<xs:simpleContent>
 			<xs:extension base="xs:string">
-				<xs:attribute name="type" type="xs:string" />
+				<xs:attribute name="type" type="description_type" />
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
+	
+	<xs:simpleType name="description_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="morphology" />
+	    		<xs:enumeration value="phenology" />
+	    		<xs:enumeration value="habitat" />
+	    		<xs:enumeration value="elevation" />
+	    		<xs:enumeration value="ecology" />
+	    		<xs:enumeration value="distribution" />
+	 	</xs:restriction>
+	</xs:simpleType>
 
 	<xs:complexType name="type">
 		<xs:simpleContent>
