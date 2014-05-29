@@ -102,7 +102,7 @@
 			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element type="xs:string" name="taxon_hierarchy" minOccurs="0"/>
 		</xs:choice>
-		
+		<!--the value of status for accepted taxon identification is "ACCEPTED"-->
 		<xs:attribute name="status" type="xs:NCName" use="required"/>
 	</xs:complexType>
 
