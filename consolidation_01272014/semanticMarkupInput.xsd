@@ -282,7 +282,7 @@
 			<xs:enumeration value="subgenus" />
 			<xs:enumeration value="supersection" />
 			<xs:enumeration value="section" />
-			<xs:enumeration value="subsction" />
+			<xs:enumeration value="subsection" />
 			<xs:enumeration value="superseries" />
 			<xs:enumeration value="series" />
 			<xs:enumeration value="subseries" />
