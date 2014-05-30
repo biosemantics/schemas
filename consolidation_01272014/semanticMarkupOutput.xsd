@@ -110,7 +110,7 @@
 		<xs:choice minOccurs="1" maxOccurs="unbounded">
 			<!--extending this list with other ranks by adding rank_name and rank_authority -->
 			<xs:element maxOccurs="unbounded" ref="taxon_name"/>
-			<xs:element maxOccurs="unbounded" ref="strain_name" minOccurs="0"/>
+			<xs:element maxOccurs="unbounded" ref="strain_number" minOccurs="0"/>
 			<xs:element type="other_info_on_name" name="other_info_on_name" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element type="xs:string" name="taxon_hierarchy" minOccurs="0"/>
@@ -121,7 +121,7 @@
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
-					<xs:attribute name="rank" type="rank_type" use="required"/>
+					<xs:attribute name="rank" type="xs:string" use="required"/>
 					<xs:attribute name="authority"/>
 					<xs:attribute name="date"/>	
 				</xs:extension>
@@ -129,18 +129,18 @@
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:element name="strain_name">
+	<xs:element name="strain_number">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
-					<xs:attribute name="source" type="xs:string" />
-					<xs:attribute name="accession_number_16S_rRNA" type="xs:string"/>
+					<xs:attribute name="equivalent_strain_numbers" type="xs:string" />
+					<xs:attribute name="accession_number_16s_rrna" type="xs:string"/>
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
 	</xs:element>
 	
-	<xs:simpleType name="rank_type">
+<!--	<xs:simpleType name="rank_type">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="superdomain" />
 			<xs:enumeration value="domain" />
@@ -190,7 +190,7 @@
 			<xs:enumeration value="unranked" />
 		</xs:restriction>
 	</xs:simpleType>
-
+-->
 
 	<xs:complexType name="place_of_publication">
 		<xs:sequence>
