@@ -107,14 +107,15 @@
 	</xs:complexType>
 
 	<xs:complexType name="taxon_identification">
+		<xs:sequence>
 		<xs:choice minOccurs="1" maxOccurs="unbounded">
-			<!--extending this list with other ranks by adding rank_name and rank_authority -->
 			<xs:element maxOccurs="unbounded" ref="taxon_name"/>
-			<xs:element maxOccurs="unbounded" ref="strain_number" minOccurs="0"/>
-			<xs:element type="other_info_on_name" name="other_info_on_name" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element maxOccurs="unbounded" ref="strain_number"/>
+		</xs:choice>
 			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element type="xs:string" name="taxon_hierarchy" minOccurs="0"/>
-		</xs:choice>
+			<xs:element type="other_info_on_name" name="other_info_on_name" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
 		<xs:attribute name="status" type="xs:NCName" use="required"/>
 	</xs:complexType>
 	<xs:element name="taxon_name">
