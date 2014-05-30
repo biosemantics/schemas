@@ -234,6 +234,7 @@
 			<xs:enumeration value="elevation" />
 			<xs:enumeration value="ecology" />
 			<xs:enumeration value="distribution" />
+			<xs:enumeration value="other" />
 		</xs:restriction>
 	</xs:simpleType>
 
