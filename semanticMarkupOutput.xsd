@@ -280,7 +280,6 @@ targetNamespace="http://www.github.com/biosemantics">
 		<xs:attribute name="constraintid" type="xs:NCName" />
 		<xs:attribute name="geographical_constraint" />
 		<xs:attribute name="id" use="required" type="xs:ID" />
-		<xs:attribute name="in_bracket" type="xs:boolean" />
 		<xs:attribute name="in_brackets" type="xs:boolean" />
 		<xs:attribute name="name" use="required" />
 		<xs:attribute name="parallelism_constraint" type="xs:NCName" />
