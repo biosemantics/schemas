@@ -14,7 +14,7 @@ targetNamespace="http://www.github.com/biosemantics">
     </xs:simpleType>
 
 	<xs:element name="treatment" type="treatment"/>
-f
+
 	<xs:complexType name="treatment">
 		<xs:sequence>
 			<xs:element type="meta" name="meta"/>
