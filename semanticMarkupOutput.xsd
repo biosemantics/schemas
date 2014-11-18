@@ -258,6 +258,7 @@ targetNamespace="http://www.github.com/biosemantics">
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element type="relation" name="relation" />
 				<xs:element type="structure" name="structure" />
+				<xs:element type="nonEmptyString" name="value"/>
 			</xs:choice>
 		</xs:sequence>
 		<xs:attribute name="id" use="required" type="xs:ID" />
