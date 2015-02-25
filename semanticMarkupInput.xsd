@@ -209,11 +209,11 @@ targetNamespace="http://www.github.com/biosemantics">
 	<xs:complexType name="key">
 		<xs:sequence>
 			<xs:element type="meta" name="meta" minOccurs="0"/>
-			<xs:element name="key_heading" type="nonEmptyString" minOccurs="0"/>
+			<xs:element name="key_head" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="key_author" type="nonEmptyString" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:choice minOccurs="0" maxOccurs="unbounded">
 				<xs:element name="discussion" type="nonEmptyString"/>
-				<xs:element name="key_head" type="nonEmptyString"/>
+				<!--<xs:element name="key_head" type="nonEmptyString"/>-->
 				<xs:element type="key_statement" name="key_statement"/>
 			</xs:choice>
 		</xs:sequence>
