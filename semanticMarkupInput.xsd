@@ -321,14 +321,12 @@ targetNamespace="http://www.github.com/biosemantics">
 		</xs:restriction>
 	</xs:simpleType>
 	
-	<xs:element name="references">
-    <xs:complexType>
+	
+    <xs:complexType name="references">
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" ref="reference_discussion"/>
-        <xs:element maxOccurs="unbounded" ref="reference"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="reference_discussion" type="nonEmptyString"/>
+        <xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
       </xs:sequence>
     </xs:complexType>
-  </xs:element>
-  <xs:element name="reference_discussion" type="nonEmptyString"/>
-  <xs:element name="reference" type="nonEmptyString"/>
+
 </xs:schema>
