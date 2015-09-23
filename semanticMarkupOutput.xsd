@@ -302,6 +302,7 @@
 	</xs:complexType>
 
 	<xs:complexType name="character">
+		<xs:attribute name="negation" use="required" type="xs:boolean"/>
 		<xs:attribute name="char_type" type="xs:NCName"/>
 		<xs:attribute name="constraint"/>
 		<xs:attribute name="constraintid"/>
