@@ -272,7 +272,16 @@
 		<xs:attribute name="modifier"/>
 		<xs:attribute name="name" use="required"/>
 		<xs:attribute name="negation" use="required" type="xs:boolean"/>
-		<xs:attribute name="organ_constraint"/>
+		<xs:attribute name="organ_constraint">
+			<xs:annotation>
+					<xs:documentation> Sometimes the description would say 
+					"basal tubercles not markedly longer than distal ones (except in sterile fruits)". 
+					We will put 'except in sterile fruits' in organ_constraint for the length character.  
+					</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>			
+					
+ 
 		<xs:attribute name="parallelism_constraint" type="xs:NCName">
 			<xs:annotation>
 					<xs:documentation>parallelism_constraint is used to indicate if the description about 
@@ -288,7 +297,17 @@
 					</xs:documentation>
 				</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="taxon_constraint"/>
+		<xs:attribute name="taxon_constraint">
+			<xs:annotation>
+					<xs:documentation> The taxon_constraint is used to indicate an entity/character/relation 
+					is applicable only to a specific taxon. 
+					For example "basal tubercles rounded (except in m. parvifolia and m. bostockii)". 
+					The character is not applicable to all taxa in the genus, so we'd use 
+					taxon_constraint = "except in m. parvifolia and m. bostockii" for the shape 
+					character of basal tubercles.
+					</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="to" use="required" type="xs:NCName"/>
 		<xs:attribute name="ontologyid" type="xs:string"/>
 		<xs:attribute name="provenance" type="xs:string"/>
