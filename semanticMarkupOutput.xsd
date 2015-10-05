@@ -273,7 +273,21 @@
 		<xs:attribute name="name" use="required"/>
 		<xs:attribute name="negation" use="required" type="xs:boolean"/>
 		<xs:attribute name="organ_constraint"/>
-		<xs:attribute name="parallelism_constraint" type="xs:NCName"/>
+		<xs:attribute name="parallelism_constraint" type="xs:NCName">
+			<xs:annotation>
+					<xs:documentation>parallelism_constraint is used to indicate if the description about 
+					a structure (or an entity) does not follow the parallelism principle.
+					In Flora of North America, for example, if an author describe a set of 
+					characters for a genus,  the authors are required to describe the same set of 
+					characters for other genera in the same family. However, the authors sometimes
+					can not follow this principle, and to indicate they deviated from the rule, 
+					they use () to enclose the characters they described for a genus but not for other genera.
+					We used parallelism_constraint = "true|false|possible" to indicate if the description 
+					of a structure deviated from the parallelism rule. This attribute also applies to characters and
+					relations based on the same idea. 
+					</xs:documentation>
+				</xs:annotation>
+		</xs:attribute>
 		<xs:attribute name="taxon_constraint"/>
 		<xs:attribute name="to" use="required" type="xs:NCName"/>
 		<xs:attribute name="ontologyid" type="xs:string"/>
