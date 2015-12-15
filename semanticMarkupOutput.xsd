@@ -28,7 +28,8 @@
 				<xs:element type="taxon_relation_articulation" name="taxon_relation_articulation"
 					minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element type="key" name="key" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded"
+				/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -123,8 +124,8 @@
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
 				<xs:attribute name="rank" type="rank_type" use="required"/>
-				<xs:attribute name="authority"/>
-				<xs:attribute name="date"/>
+				<xs:attribute name="authority" use="required"/>
+				<xs:attribute name="date" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -207,7 +208,7 @@
 	<xs:complexType name="other_info_on_name">
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
-				<xs:attribute name="type" type="nonEmptyString"/>
+				<xs:attribute name="type" type="other_info_on_name_type"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -226,7 +227,7 @@
 		</xs:sequence>
 		<xs:attribute name="type" type="description_type" use="required"/>
 		<xs:attribute name="scope"/>
-		
+
 	</xs:complexType>
 
 	<xs:simpleType name="description_type">
@@ -274,17 +275,17 @@
 		<xs:attribute name="negation" use="required" type="xs:boolean"/>
 		<xs:attribute name="organ_constraint">
 			<xs:annotation>
-					<xs:documentation> Sometimes the description would say 
+				<xs:documentation> Sometimes the description would say 
 					"basal tubercles not markedly longer than distal ones (except in sterile fruits)". 
 					We will put 'except in sterile fruits' in organ_constraint for the length character.  
 					</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>			
-					
- 
+		</xs:attribute>
+
+
 		<xs:attribute name="parallelism_constraint" type="xs:NCName">
 			<xs:annotation>
-					<xs:documentation>parallelism_constraint is used to indicate if the description about 
+				<xs:documentation>parallelism_constraint is used to indicate if the description about 
 					a structure (or an entity) does not follow the parallelism principle.
 					In Flora of North America, for example, if an author describe a set of 
 					characters for a genus,  the authors are required to describe the same set of 
@@ -295,11 +296,11 @@
 					of a structure deviated from the parallelism rule. This attribute also applies to characters and
 					relations based on the same idea. 
 					</xs:documentation>
-				</xs:annotation>
+			</xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="taxon_constraint">
 			<xs:annotation>
-					<xs:documentation> The taxon_constraint is used to indicate an entity/character/relation 
+				<xs:documentation> The taxon_constraint is used to indicate an entity/character/relation 
 					is applicable only to a specific taxon. 
 					For example "basal tubercles rounded (except in m. parvifolia and m. bostockii)". 
 					The character is not applicable to all taxa in the genus, so we'd use 
@@ -332,10 +333,14 @@
 		<xs:attribute name="notes" type="xs:string"/>
 		<xs:attribute name="name_original" type="xs:string"/>
 		<xs:attribute name="type" type="biological_entity_type" use="required"/>
+		<xs:attribute name="inferred_constraint">
+			<xs:annotation><xs:documentation>the inferred_constraint is used to hold the parent structure that is inferred by the software to disambiguiate a non-specific structure, for example apex may have an inferred_constraint leaf to refer to leaf apex.  </xs:documentation></xs:annotation>
+		</xs:attribute>
+		
 	</xs:complexType>
 
 	<xs:complexType name="character">
-		<xs:attribute name="negation" use="required" type="xs:boolean"/>
+		<xs:attribute name="negation" use="optional" type="xs:boolean"/>
 		<xs:attribute name="char_type" type="xs:NCName"/>
 		<xs:attribute name="constraint"/>
 		<xs:attribute name="constraintid"/>
@@ -361,6 +366,7 @@
 		<xs:attribute name="provenance" type="xs:string"/>
 		<xs:attribute name="notes" type="xs:string"/>
 		<xs:attribute name="is_modifier" type="xs:boolean"/>
+		<xs:attribute name="establishment_means" type="establishment_means_type"/>
 	</xs:complexType>
 	<xs:complexType name="type">
 		<xs:simpleContent>
@@ -440,10 +446,24 @@
 		</xs:simpleContent>
 	</xs:complexType>
 	<xs:complexType name="references">
-      		<xs:sequence>
-        		<xs:element minOccurs="0" maxOccurs="unbounded" name="reference_discussion" type="nonEmptyString"/>
-        		<xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
-      		</xs:sequence>
-    	</xs:complexType>
-	
-	</xs:schema>
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="reference_discussion"
+				type="nonEmptyString"/>
+			<xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="other_info_on_name_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="etymology"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="establishment_means_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="introduced"/>
+			<xs:enumeration value="native"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
