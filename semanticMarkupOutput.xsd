@@ -452,6 +452,13 @@
 			<xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
 		</xs:sequence>
 	</xs:complexType>
+	
+	<xs:simpleType name="establishment_means_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="introduced"/>
+			<xs:enumeration value="native"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:simpleType name="other_info_on_name_type">
 		<xs:restriction base="xs:string">
@@ -460,10 +467,5 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<xs:simpleType name="establishment_means_type">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="introduced"/>
-			<xs:enumeration value="native"/>
-		</xs:restriction>
-	</xs:simpleType>
+
 </xs:schema>
