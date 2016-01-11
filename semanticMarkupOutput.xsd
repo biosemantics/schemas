@@ -334,7 +334,7 @@
 		<xs:attribute name="name_original" type="xs:string"/>
 		<xs:attribute name="type" type="biological_entity_type" use="required"/>
 		<xs:attribute name="inferred_constraint">
-			<xs:annotation><xs:documentation>the inferred_constraint is used to hold the parent structure that is inferred by the software to disambiguiate a non-specific structure, for example apex may have an inferred_constraint leaf to refer to leaf apex.  </xs:documentation></xs:annotation>
+			<xs:annotation><xs:documentation>the inferred_constraint is used to hold the structure that is inferred by the software, for example, to disambiguiate a non-specific structure, for example apex may have an inferred_constraint leaf to refer to leaf apex.  </xs:documentation></xs:annotation>
 		</xs:attribute>
 		
 	</xs:complexType>
