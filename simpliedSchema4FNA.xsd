@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<!--ETC input schema was simplied to be used as a template for FNA to convert v 24 and v25 into an xml format we can parse into our input schema-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.github.com/biosemantics"
+	targetNamespace="http://www.github.com/biosemantics" elementFormDefault="qualified">
+	<xs:simpleType name="nonEmptyString">
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="treatment" type="treatment"/>
+
+	<xs:complexType name="treatment">
+		<xs:sequence>
+			<xs:element type="meta" name="meta"/>
+			<xs:element type="nonEmptyString" name="number" minOccurs="0" maxOccurs="1"/><!-- this is the number used in FNA before a taxon name -->
+			<xs:element type="taxon_identification" name="taxon_name" minOccurs="1"
+				maxOccurs="1"/>
+			<xs:element type="nonEmptyString" name="taxon_synonym" minOccurs="0"
+				maxOccurs="unbounded"/>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element type="description" name="description" minOccurs="0"
+					maxOccurs="unbounded"/>
+				<xs:element type="nonEmptyString" name="material" minOccurs="0" maxOccurs="unbounded"/><!-- material examined -->
+				<xs:element type="nonEmptyString" name="discussion" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element type="key" name="key" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element type="nonEmptyString" name="references" minOccurs="0" maxOccurs="unbounded"
+				/> <!-- please seperate individual references using line breaks -->
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="source" mixed="true">
+		<xs:sequence>
+			<xs:element name="author" type="nonEmptyString" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="date" type="nonEmptyString" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="title" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="pages" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="meta">
+		<xs:sequence>
+			<xs:element type="source" name="source">
+				<xs:annotation>
+					<xs:documentation>put the bibliographic information of the source
+						paper here</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="processed_by" type="processed_by" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>e.g. name of the person who converted the
+						original to this format</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="processed_by">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="processor" type="processor"/>
+		</xs:choice>
+	</xs:complexType>
+
+	<xs:complexType name="processor">
+		<xs:sequence>
+			<xs:element name="date" type="nonEmptyString"/>
+			<xs:choice minOccurs="1" maxOccurs="2">
+				<xs:element type="software" name="software" minOccurs="0"/>
+				<xs:element name="operator" type="nonEmptyString" minOccurs="0"/>
+			</xs:choice>
+			<xs:element type="resource" name="resource" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="software">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="version" type="nonEmptyString"/>
+				<xs:attribute name="type" type="nonEmptyString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="resource">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="version" type="nonEmptyString"/>
+				<xs:attribute name="type" type="nonEmptyString"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:complexType name="taxon_identification">
+		<xs:sequence>
+			<xs:element type="rank_type" name="rank" minOccurs="1"
+				maxOccurs="1"/> <!-- taxonomic rank of the taxon, e.g. family, genus, species -->
+			<xs:element type="nonEmptyString" name="name_authority_date" minOccurs="1"
+				maxOccurs="1"/>
+			<xs:element type="nonEmptyString" name="etymology_publication_conserved_pastName_commonName" minOccurs="0"
+				maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="description">
+		<xs:simpleContent>
+			<xs:extension base="nonEmptyString">
+				<xs:attribute name="type" type="description_type" use="required"/>
+				<xs:attribute name="scope"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+
+	<xs:simpleType name="description_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="morphology"/>
+			<xs:enumeration value="others"/><!-- # of infrataxa, introduced, generalized distribution, flowering time,habitat, elevation, state distribution, global distribution  -->
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:complexType name="key">
+		<!-- in case of a key being broken into several parts, connnect them and put in one complete key -->
+		<xs:sequence>
+			<xs:element type="meta" name="meta" minOccurs="0"/>
+			<xs:element name="key_heading" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="key_authors" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="discussion" type="nonEmptyString" minOccurs="0" maxOccurs="1"/>
+			<xs:element type="nonEmptyString" name="key_body" minOccurs="1" maxOccurs="1"/> <!-- this is the formated key body -->			
+		</xs:sequence>
+	</xs:complexType>
+
+	
+	<xs:simpleType name="rank_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="life"/>
+			<xs:enumeration value="superdomain"/>
+			<xs:enumeration value="domain"/>
+			<xs:enumeration value="subdomain"/>
+			<xs:enumeration value="superkingdom"/>
+			<xs:enumeration value="kingdom"/>
+			<xs:enumeration value="subkingdom"/>
+			<xs:enumeration value="superphylum"/>
+			<xs:enumeration value="phylum"/>
+			<xs:enumeration value="subphylum"/>
+			<xs:enumeration value="superdivision"/>
+			<xs:enumeration value="division"/>
+			<xs:enumeration value="subdivsion"/>
+			<xs:enumeration value="superclass"/>
+			<xs:enumeration value="class"/>
+			<xs:enumeration value="subclass"/>
+			<xs:enumeration value="superorder"/>
+			<xs:enumeration value="order"/>
+			<xs:enumeration value="suborder"/>
+			<xs:enumeration value="superfamily"/>
+			<xs:enumeration value="family"/>
+			<xs:enumeration value="subfamily"/>
+			<xs:enumeration value="supertribe"/>
+			<xs:enumeration value="tribe"/>
+			<xs:enumeration value="subtribe"/>
+			<xs:enumeration value="supergenus"/>
+			<xs:enumeration value="genus"/>
+			<xs:enumeration value="subgenus"/>
+			<xs:enumeration value="supersection"/>
+			<xs:enumeration value="section"/>
+			<xs:enumeration value="subsection"/>
+			<xs:enumeration value="superseries"/>
+			<xs:enumeration value="series"/>
+			<xs:enumeration value="subseries"/>
+			<xs:enumeration value="superspecies"/>
+			<xs:enumeration value="species"/>
+			<xs:enumeration value="subspecies"/>
+			<xs:enumeration value="superstrain"/>
+			<xs:enumeration value="strain"/>
+			<xs:enumeration value="substrain"/>
+			<xs:enumeration value="supertypestrain"/>
+			<xs:enumeration value="typestrain"/>
+			<xs:enumeration value="subtypestrain"/>
+			<xs:enumeration value="supervariety"/>
+			<xs:enumeration value="variety"/>
+			<xs:enumeration value="subvarietas"/>
+			<xs:enumeration value="superforma"/>
+			<xs:enumeration value="forma"/>
+			<xs:enumeration value="subforma"/>
+			<xs:enumeration value="supergroup"/>
+			<xs:enumeration value="group"/>
+			<xs:enumeration value="subgroup"/>
+			<xs:enumeration value="unranked"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>
