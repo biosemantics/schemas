@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-
-xmlns="http://www.github.com/biosemantics"
-
-targetNamespace="http://www.github.com/biosemantics">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.github.com/biosemantics"
+	targetNamespace="http://www.github.com/biosemantics">
 
 	<xs:simpleType name="nonEmptyString">
-        <xs:restriction base="xs:string">
-        	<xs:whiteSpace value="collapse"/>
-            <xs:minLength value="1"/>
-        </xs:restriction>
-    </xs:simpleType>
+		<xs:restriction base="xs:string">
+			<xs:whiteSpace value="collapse"/>
+			<xs:minLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 	<xs:element name="treatment" type="treatment"/>
 
@@ -31,7 +28,8 @@ targetNamespace="http://www.github.com/biosemantics">
 				<xs:element type="taxon_relation_articulation" name="taxon_relation_articulation"
 					minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element type="key" name="key" minOccurs="0" maxOccurs="unbounded"/>
-				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded"
+				/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -109,14 +107,16 @@ targetNamespace="http://www.github.com/biosemantics">
 
 	<xs:complexType name="taxon_identification">
 		<xs:sequence>
-		<xs:choice minOccurs="1" maxOccurs="unbounded">
-			<xs:element maxOccurs="unbounded" name="taxon_name" type="taxon_name"/>
-			<xs:element maxOccurs="unbounded" name="strain_number" type="strain_number"/>
-		</xs:choice>
-			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="1" maxOccurs="unbounded">
+				<xs:element maxOccurs="unbounded" name="taxon_name" type="taxon_name"/>
+				<xs:element maxOccurs="unbounded" name="strain_number" type="strain_number"/>
+			</xs:choice>
+			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0"
+				maxOccurs="unbounded"/>
 			<xs:element type="nonEmptyString" name="taxon_hierarchy" minOccurs="0"/>
-			<xs:element type="other_info_on_name" name="other_info_on_name" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence>	
+			<xs:element type="other_info_on_name" name="other_info_on_name" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
 		<!--the value of status for accepted taxon identification is "ACCEPTED"-->
 		<xs:attribute name="status" type="xs:NCName" use="required"/>
 	</xs:complexType>
@@ -133,7 +133,7 @@ targetNamespace="http://www.github.com/biosemantics">
 	<xs:complexType name="other_info_on_name">
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
-				<xs:attribute name="type" type="nonEmptyString"/>
+				<xs:attribute name="type" type="other_info_on_name_type" use="optional"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -243,26 +243,26 @@ targetNamespace="http://www.github.com/biosemantics">
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="taxon_name">
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
 				<xs:attribute name="rank" type="rank_type" use="required"/>
 				<xs:attribute name="authority" use="required"/>
-				<xs:attribute name="date" use="required"/>	
+				<xs:attribute name="date" use="required"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	
+
 	<xs:complexType name="strain_number">
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
-				<xs:attribute name="equivalent_strain_numbers" type="nonEmptyString" />
+				<xs:attribute name="equivalent_strain_numbers" type="nonEmptyString"/>
 				<xs:attribute name="accession_number_16s_rrna" type="nonEmptyString"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
-	
+
 	<xs:simpleType name="rank_type">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="domain" />
@@ -306,13 +306,20 @@ targetNamespace="http://www.github.com/biosemantics">
 			<xs:enumeration value="unranked" />
 		</xs:restriction>
 	</xs:simpleType>
-	
-	
-    <xs:complexType name="references">
-      <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="unbounded" name="reference_discussion" type="nonEmptyString"/>
-        <xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
-      </xs:sequence>
-    </xs:complexType>
 
+
+	<xs:complexType name="references">
+		<xs:sequence>
+			<xs:element minOccurs="0" maxOccurs="unbounded" name="reference_discussion"
+				type="nonEmptyString"/>
+			<xs:element maxOccurs="unbounded" name="reference" type="nonEmptyString"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="other_info_on_name_type">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="etymology"/>
+			<xs:enumeration value="other"/>
+		</xs:restriction>
+	</xs:simpleType>
 </xs:schema>
