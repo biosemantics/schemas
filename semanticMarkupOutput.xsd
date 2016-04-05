@@ -30,6 +30,7 @@
 				<xs:element type="key" name="key" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded"
 				/>
+				<xs:element name="previous_or_new_taxonomic_names" type="nonEmptyString" minOccurs="0"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
@@ -135,6 +136,7 @@
 			<xs:extension base="nonEmptyString">
 				<xs:attribute name="equivalent_strain_numbers" type="nonEmptyString"/>
 				<xs:attribute name="accession_number_16s_rrna" type="nonEmptyString"/>
+				<xs:attribute name="accession_number_for_genome_sequence" type="nonEmptyString"/>
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
