@@ -30,7 +30,7 @@
 				<xs:element type="key" name="key" minOccurs="0" maxOccurs="unbounded"/>
 				<xs:element type="references" name="references" minOccurs="0" maxOccurs="unbounded"
 				/>
-				<xs:element name="previous_or_new_taxonomic_names" type="nonEmptyString"/>
+				<xs:element name="previous_or_new_taxonomic_names" type="nonEmptyString" minOccurs="0"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
