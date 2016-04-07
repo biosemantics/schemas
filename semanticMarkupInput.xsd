@@ -110,6 +110,7 @@
 		<xs:sequence>
 			<xs:choice minOccurs="1" maxOccurs="unbounded">
 				<xs:element maxOccurs="unbounded" name="taxon_name" type="taxon_name"/>
+				<xs:element maxOccurs="unbounded" name="strain_number" type="strain_number"/>
 			</xs:choice>
 			<xs:element type="place_of_publication" name="place_of_publication" minOccurs="0"
 				maxOccurs="unbounded"/>
@@ -254,7 +255,7 @@
 		</xs:simpleContent>
 	</xs:complexType>
 
-	<!--<xs:complexType name="strain_number">
+	<xs:complexType name="strain_number">
 		<xs:simpleContent>
 			<xs:extension base="nonEmptyString">
 				<xs:attribute name="equivalent_strain_numbers" type="nonEmptyString"/>
@@ -262,7 +263,7 @@
 				<xs:attribute name="accession_number_for_genome_sequence" type="nonEmptyString"/>
 			</xs:extension>
 		</xs:simpleContent>
-	</xs:complexType>-->
+	</xs:complexType>
 
 	<xs:simpleType name="rank_type">
 		<xs:restriction base="xs:string">
@@ -303,7 +304,7 @@
 			<xs:enumeration value="subform" />
 			<xs:enumeration value="cultivar_group" />
 			<xs:enumeration value="cultivar" />
-			<xs:enumeration value="strain" />
+			<!--<xs:enumeration value="strain" />-->
 			<xs:enumeration value="unranked" />
 		</xs:restriction>
 	</xs:simpleType>
