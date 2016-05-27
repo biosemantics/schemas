@@ -335,6 +335,7 @@
 		<xs:attribute name="from"/>
 		<xs:attribute name="from_inclusive" type="xs:boolean"/>
 		<xs:attribute name="from_unit" type="xs:NCName"/>
+		<xs:attribute name="from_modifier"/>
 		<xs:attribute name="geographical_constraint"/>
 		<xs:attribute name="in_brackets" type="xs:boolean"/>
 		<xs:attribute name="modifier"/>
@@ -346,6 +347,7 @@
 		<xs:attribute name="to"/>
 		<xs:attribute name="to_inclusive" type="xs:boolean"/>
 		<xs:attribute name="to_unit" type="xs:NCName"/>
+		<xs:attribute name="to_modifier"/>
 		<xs:attribute name="type"/>
 		<xs:attribute name="unit"/>
 		<xs:attribute name="upper_restricted" type="xs:boolean"/>
