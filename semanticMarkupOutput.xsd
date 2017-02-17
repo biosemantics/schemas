@@ -326,7 +326,7 @@
 			<xs:annotation><xs:documentation>the inferred_constraint is used to hold the structure that is inferred by the software, for example, to disambiguiate a non-specific structure, for example apex may have an inferred_constraint leaf to refer to leaf apex.  </xs:documentation></xs:annotation>
 		</xs:attribute>
 		<xs:attribute name="src" type="xs:string"/>
-		<xs:attribute name="constraint_original" type="xs:string/>
+		<xs:attribute name="constraint_original" type="xs:string"/>
 	</xs:complexType>
 
 	<xs:complexType name="character">
@@ -360,7 +360,7 @@
 		<xs:attribute name="is_modifier" type="xs:boolean"/>
 		<xs:attribute name="establishment_means" type="establishment_means_type"/>
 		<xs:attribute name="src" type="xs:string"/>
-		<xs:attribute name="value_original" type="xs:string/>
+		<xs:attribute name="value_original" type="xs:string"/>
 	</xs:complexType>
 	<xs:complexType name="type">
 		<xs:simpleContent>
