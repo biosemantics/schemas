@@ -359,6 +359,7 @@
 		<xs:attribute name="is_modifier" type="xs:boolean"/>
 		<xs:attribute name="establishment_means" type="establishment_means_type"/>
 		<xs:attribute name="src" type="xs:string"/>
+		<xs:attribute name="value_original" type="xs:string/>
 	</xs:complexType>
 	<xs:complexType name="type">
 		<xs:simpleContent>
